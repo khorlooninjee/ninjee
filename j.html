@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day </title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #d63384;
+        }
+        .container {
+            margin-top: 50px;
+            position: relative;
+        }
+        #question {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            position: relative;
+            display: inline-block;
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        #noBtn {
+            background-color: #ff9999;
+            color: white;
+            position: absolute;
+            left: 80px;
+        }
+        #yesBtn:hover {
+            background-color: #d63384;
+        }
+        #noBtn:hover {
+            background-color: #ff4d6d;
+        }
+        #heartLoader {
+            display: none;
+            font-size: 1.5rem;
+        }
+        #resultContainer {
+            display: none;
+        }
+        /* Floating Hearts Animation */
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: float 4s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1> Hey Crush, Will You Be My Valentine? </h1>
+    
+    <div class="container">
+        <p id="question">Please say yes! </p>
+        <div class="button-container">
+            <button id="yesBtn">Yes </button>
+            <button id="noBtn">No </button>
+        </div>
+    </div>
+
+    <div id="heartLoader"> Loading your surprise... </div>
+
+    <div id="resultContainer">
+        <h2>Yay!  I knew you'd say yes! </h2>
+        <img id="gifResult" src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" width="200">
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("noBtn");
+        const yesBtn = document.getElementById("yesBtn");
+        const heartLoader = document.getElementById("heartLoader");Ы
+        const resultContainer = document.getElementById("resultContainer");
+        const questionContainer = document.querySelector(".container");
+
+        noBtn.addEventListener("mouseover", () => {
+            const newX = Math.floor(Math.random() * window.innerWidth * 0.8);
+            const newY = Math.floor(Math.random() * window.innerHeight * 0.8);
+            noBtn.style.left = $ {newX}px
+            noBtn.style.top = $ {newY}px
+        });
+
+        yesBtn.addEventListener("click", () => {
+            heartLoader.style.display = "block";
+            setTimeout(() => {
+                heartLoader.style.display = "none";
+                resultContainer.style.display = "inherit";
+                startHearts(); // Start floating hearts
+            }, 3000);
+        });
+
+        // Floating Hearts Effect
+        function startHearts() {
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "";
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }
+        }
+    </script>
+
+</body>
+</html>
+media.giphy.com

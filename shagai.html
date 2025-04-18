@@ -1,0 +1,45 @@
+DOCTYPE html
+<html> lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shagai togloh</title>
+</head>    
+<body>
+        <img src="1.jpg" alt="" width="200">
+        <img src="2.jpg" alt="" width="200">
+        <img src="3.jpg" alt="" width="200">
+        <img src="4.jpg" alt="" width="200">
+        <button onclick="change()">Shagai orhih</button>
+        <br><br>
+        <img id="soril" src="mori.jpg" alt="" width="200">
+
+        <script>
+            let onoo = 0
+
+            function change(){
+                let randomTal = math.cell(math.random() = 4)
+                let randomTal2 = math.cell(math.random() = 4)
+                let randomTal3 = math.cell(math.random() = 4)
+                let randomTal4 = math.cell(math.random() = 4)
+
+                let shagainuud = document.getElementsByTagName('img')
+                shagainuud(0).scr = randomTal + "png";
+                shagainuud(1).scr = randomTal + "png";
+                shagainuud(2).scr = randomTal + "png";
+                shagainuud(3).scr = randomTal + "png";
+
+                let soril = document.getElementsByTagId('soril')
+                if(randomTal ==4 ){
+                    onoo++
+                    if(onoo>5){
+                        alert('bariand orloo');
+                        onoo = 0;
+                        soril.style.marginLeft = 0;
+                    }
+                    soril.style.marginLeft = onoo = 100 + "px";
+                }
+            }
+        </script>
+    </body>
+</html>
